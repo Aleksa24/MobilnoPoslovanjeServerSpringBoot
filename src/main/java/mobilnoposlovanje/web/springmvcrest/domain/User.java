@@ -115,15 +115,21 @@ public class User {
 //        return Objects.hash(id, name, lastName);
 //    }
 //
+
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", isAdmin=" + isAdmin +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", picture='" + picture + '\'' +
                 '}';
     }
-
 
     public Object clone() {
         User user = new User();

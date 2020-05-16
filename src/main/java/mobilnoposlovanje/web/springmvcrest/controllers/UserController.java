@@ -59,9 +59,9 @@ public class UserController {
         if (user == null) {
             throw new UserApiException("User with that email and/or password not found");
         }
-        if (isLogedIn(user)) {
-            throw new UserApiException("User is Is Already loged in");
-        }
+//        if (isLogedIn(user)) {
+//            throw new UserApiException("User is Is Already loged in");
+//        }
         this.logedInUsers.add(user);
         System.out.println(logedInUsers);
         ObjectMapper mapper = new ObjectMapper();
@@ -71,8 +71,11 @@ public class UserController {
     @CrossOrigin(origins = "http://localhost:8100")
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.OK)
-    public User loginUser(@RequestBody User user) {
+    public User updateUser(@RequestBody User user) {
+        System.out.println("===updateUser()===");
+        System.out.println("user:" + user);
         User updatedUser = this.userService.updateUser(user);
+        System.out.println("updated user in rep by id:" + userService.findUserById(user.getId()));
         return updatedUser;
     }
 

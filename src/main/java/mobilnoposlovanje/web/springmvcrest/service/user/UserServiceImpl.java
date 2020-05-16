@@ -57,12 +57,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateUser(User user) {
         User userToUpdate = this.userRepository.findById(user.getId()).get();
+        System.out.println("user in rep before update:" + userRepository.findById(user.getId()).get());
         userToUpdate.setEmail(user.getEmail());
         userToUpdate.setUsername(user.getUsername());
         userToUpdate.setName(user.getName());
         userToUpdate.setLastName(user.getLastName());
         userToUpdate.setIsAdmin(user.getIsAdmin());
         userToUpdate.setPicture(user.getPicture());
-        return userToUpdate;
+        userRepository.save(userToUpdate);
+
+        return userRepository.findById(user.getId()).get();
     }
 }
