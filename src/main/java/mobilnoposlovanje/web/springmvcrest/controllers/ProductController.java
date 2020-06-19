@@ -17,21 +17,21 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @GetMapping
     List<Product> getAllProducts(){
         System.out.println("===getAllProducts()===");
         return productService.findAllProducts();
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @GetMapping("/{id}")
     public Product getUserById(@PathVariable Long id){
         System.out.println("===getUserById(id)===");
         return productService.findProductById(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Product saveUser(@RequestBody Product product){

@@ -23,14 +23,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @GetMapping()
     List<User> getAllUsers(){
         System.out.println("===getAllUsers()===");
         return userService.findAllUsers();
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id){
 
@@ -38,7 +38,7 @@ public class UserController {
         return userService.findUserById(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public User saveUser(@RequestBody User user){
@@ -50,7 +50,7 @@ public class UserController {
         return userToSend;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     public User loginUser(@RequestBody EmailPassword data) {
@@ -68,7 +68,7 @@ public class UserController {
         return user;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.OK)
     public User updateUser(@RequestBody User user) {
@@ -87,7 +87,7 @@ public class UserController {
         return false;
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin//(origins = "http://localhost:8100")
     @PostMapping("/logout")
     @ResponseStatus(HttpStatus.OK)
     public ReturnMessage logoutUser(@RequestBody User userToLogout) {
